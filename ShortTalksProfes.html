@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de Videos Institucionales</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        /* Paleta de Colores: 
+   #561A6B (Púrpura Oscuro) - Principal para texto y acentos fuertes
+   #DB005F (Magenta Brillante) - Secundario para enlaces y hover
+   #58B2AF (Verde Turquesa Suave) - Decoración de fondo de tarjetas y bordes
+*/
+
+:root {
+    --color-primary: #561A6B;
+    --color-secondary: #DB005F;
+    --color-accent: #58B2AF;
+    --color-background: #FFFFFF; /* Fondo blanco */
+    --color-text: #333333;
+}
+
+/* Estilos Globales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Contenedor del Mensaje de Alerta */
+.message-container {
+    background-color: var(--color-accent); 
+    color: var(--color-primary);
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 30px;
+    border-bottom: 3px solid var(--color-primary);
+}
+
+/* Diseño de la Cuadrícula Responsive para Videos */
+.video-grid {
+    display: grid;
+    /* Por defecto, una columna en pantallas pequeñas */
+    grid-template-columns: 1fr; 
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px; /* Ancho máximo centrado */
+    margin: 0 auto;
+}
+
+/* Media Query para Tabletas */
+@media (min-width: 768px) {
+    .video-grid {
+        /* Dos columnas en tabletas y escritorios pequeños */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Media Query para Escritorios */
+@media (min-width: 1024px) {
+    .video-grid {
+        /* Tres columnas en escritorios grandes para un mejor visual */
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+/* Estilos de la Tarjeta (Card) */
+.card {
+    background-color: var(--color-background);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden; /* Asegura que el contenido no se salga del borde redondeado */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra sutil para "levantar" la tarjeta */
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 5px solid var(--color-accent); /* Decoración con el color turquesa */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Pequeño efecto de levantamiento al pasar el mouse */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Contenedor de Iframe Responsive para Videos */
+.video-embed {
+    position: relative;
+    width: 100%;
+    /* Relación de aspecto 16:9 (altura es 56.25% del ancho) */
+    padding-bottom: 56.25%; 
+    height: 0;
+}
+
+.video-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Contenido de la Tarjeta (Texto y Enlace) */
+.card-content {
+    padding: 15px;
+    text-align: center;
+}
+
+.card-content h3 {
+    color: var(--color-primary); /* Títulos con el color púrpura oscuro */
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+.card-content p {
+    color: var(--color-text);
+    font-size: 0.95em;
+    margin-bottom: 15px;
+}
+
+/* Estilo del Enlace (Link) */
+.card-link {
+    display: inline-block;
+    background-color: var(--color-primary); /* Fondo del botón púrpura oscuro */
+    color: var(--color-background); /* Texto blanco para el botón */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.card-link:hover {
+    background-color: var(--color-secondary); /* Cambio a magenta brillante al pasar el mouse */
+}
+    </style>
+
+    <header>
+        <div class="message-container">
+            <h1>Short Talks para Docentes</h1>
+            <p>**Debes haber iniciado sesión con tu correo institucional para poder visualizar los videos.**</p>
+        </div>
+    </header>
+
+    <main class="video-grid">
+        
+        <div class="card">
+            <div class="video-embed">
+                <iframe src="https://konradlorenzedu.sharepoint.com/sites/ShortTalksparaProfes/_layouts/15/embed.aspx?UniqueId=b3046b89-3962-41ab-b987-99439aa894a3&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="Short Talks para Profes-20251029_191632UTC-Meeting Recording.mp4"></iframe>
+            </div>
+            <div class="card-content">
+                <h3>Short Talk 1</h3>
+                <p><strong>ST1: Tipos de reacciones docentes con respecto a la IA.</strong></p>
+                <p>29 de octubre de 2025</p>
+                <a href="https://forms.office.com/r/xQ5hiXgtaN" target="_blank" class="card-link">Diligenciar asistencia</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="video-embed">
+                <iframe src="https://konradlorenzedu.sharepoint.com/sites/ShortTalksparaProfes/_layouts/15/embed.aspx?UniqueId=dc724b90-d189-4c46-a03d-c9ba5bbb8aed&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="Short Talks para Profes-20251031_191713UTC-Meeting Recording.mp4"></iframe>
+            </div>
+            <div class="card-content">
+                <h3>Short Talk 2</h3>
+                <p><strong>ST2: Desafíos de la IA en el entorno laboral</strong></p>
+                <p>31 de octubre de 2025</p>
+                <a href="https://forms.office.com/r/xQ5hiXgtaN" target="_blank" class="card-link">Diligenciar asistencia</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="video-embed">
+                <iframe src="https://konradlorenzedu.sharepoint.com/sites/ShortTalksparaProfes/_layouts/15/embed.aspx?UniqueId=10ad0a2c-aa72-4e52-addf-265e0040c9a0&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="Short Talks para Profes-20251104_192436UTC-Meeting Recording.mp4"></iframe>
+            </div>
+            <div class="card-content">
+                <h3>Short Talk 3</h3>
+                <p><strong>Acercamiento a la Lengua de Señas Colombiana</strong></p>
+                <p>4 de noviembre de 2025</p>
+                <a href="https://forms.office.com/r/xQ5hiXgtaN" target="_blank" class="card-link">Diligenciar asistencia</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="video-embed">
+                <iframe src="URL_DEL_VIDEO_4" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="card-content">
+                <h3>Short Talk 4</h3>
+                <p><strong>Disponible próximamente</strong></p>
+                <p>6 de noviembre de 2025</p>
+                <a href="https://forms.office.com/r/xQ5hiXgtaN" target="_blank" class="card-link">Diligenciar asistencia</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="video-embed">
+                <iframe src="URL_DEL_VIDEO_5" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="card-content">
+                <h3>Short Talk 5</h3>
+                <p><strong>Disponible próximamente</strong></p>
+                <p>10 de noviembre de 2025</p>
+                <a href="https://forms.office.com/r/xQ5hiXgtaN" target="_blank" class="card-link">Diligenciar asistencia</a>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>
